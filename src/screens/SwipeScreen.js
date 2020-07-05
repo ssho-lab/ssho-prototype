@@ -1,14 +1,22 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { inject, observer } from "mobx-react";
 
-const SwipeScreen = () => {
-  return <Text style={styles.text}>Swipe</Text>;
-};
+const SwipeScreen = inject("itemStore")(
+  observer(({ itemStore, otherStore }) => {
+    return (
+      <View>
+        <Text style={styles.text}>Swipe</Text>
+        <Text>MobX Test : {itemStore.itemList}</Text>
+      </View>
+    );
+  })
+);
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30
-  }
+    fontSize: 30,
+  },
 });
 
 export default SwipeScreen;
