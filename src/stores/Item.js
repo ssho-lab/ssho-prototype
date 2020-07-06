@@ -7,9 +7,9 @@ class ItemStore {
 
   @observable itemList = [1, 2, 3];
 
-  @action getItem() {
-    return this.itemList;
-  }
+  // @action getItem() {
+  //   return this.itemList;
+  // }
 }
 
 export default ItemStore;
